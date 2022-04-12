@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto';
+}
+
+.top {
+    background-color: #ffffff;
+    width: 100%;
+    height: 84px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top img {
+    height: 53px;
+    width: 75px;
+}
+
+.top ion-icon {
+    height: 31px;
+    width: 42px;
+}
+
+.inferior {
+    height: 80px;
+    width: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+   
+
+}
+
+.inferior ion-icon {
+    height: 26px;
+    width: 26px;
+}
+
+input {
+    border: none;
+    height: 50px;
+    width: 85%;
+    font-size:18px;
+    font-weight: 400;
+}
+input:placeholder-shown{
+    font-style:italic;
+}
+.container{
+    background-color: red;
+    margin-top: 84px;
+    margin-bottom: 80px;
+    height: 100%;
+    width:100%;
+}
