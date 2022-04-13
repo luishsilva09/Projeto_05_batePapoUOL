@@ -66,9 +66,36 @@ input:placeholder-shown{
     font-style:italic;
 }
 .container{
-    background-color: red;
+    font-family: 'Roboto';
+    font-size: 14px;
     margin-top: 84px;
-    margin-bottom: 80px;
+    margin-bottom: 90px;
     height: 100%;
     width:100%;
+    display: flex;
+    flex-direction: column;
+}
+.status{
+    background-color: #DCDCDC;
+    height: 40px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.reservadas{
+    background-color: #FFDEDE;
+    height: 40px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.todos{
+    background-color: #ffffff;
+    height: 40px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
 }
