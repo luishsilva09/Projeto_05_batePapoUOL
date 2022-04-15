@@ -46,6 +46,7 @@ body {
     justify-content: space-between;
     padding-left: 25px;
     padding-right: 25px;
+    z-index: 1;
    
 
 }
@@ -69,11 +70,12 @@ input:placeholder-shown{
     font-family: 'Roboto';
     font-size: 14px;
     margin-top: 84px;
-    margin-bottom: 90px;
+    padding-bottom: 90px;
     height: 100%;
     width:100%;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 .status{
     background-color: #DCDCDC;
