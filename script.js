@@ -33,31 +33,32 @@ function buscarMensagens() {
     const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages')
     promise.then(mensagens)
 }
+// faz a filtragem das mensagens
 function mensagens(response) {
     let dados = response.data
-
+    
     let mensagens = document.querySelector(".container");
 
     mensagens.innerHTML = ''
     for (let i = 0; i < dados.length; i++) {
-        if (dados[i].type === "message") {
+        if (dados[i].type === "message" && dados[i].to === "Todos") {
             mensagens.innerHTML +=
-                `<div class="todos">(${dados[i].time}) ${dados[i].from} ${dados[i].text}</div>`
+                `<div class="todos">(${ dados[i].time }) <b>${dados[i].from}</b> para <b>${dados[i].to }</b>: ${dados[i].text}</div>`
         }
         if (dados[i].type === "status") {
-            mensagens.innerHTML +=
-                `<div class="status">(${dados[i].time}) ${dados[i].from} ${dados[i].text}</div>`
+            mensagens.innerHTML += 
+                `<div class="status">( ${dados[i].time} ) <b>${dados[i].from}</b> ${dados[i].text}</div>`
 
         }
         if (dados[i].type === "private_message" && dados[i].to === nomeUsuario.name) {
             mensagens.innerHTML +=
-                `<div class="reservadas">(${dados[i].time}) ${dados[i].from} ${dados[i].text}</div>`
+                `<div class="reservadas">( ${dados[i].time} ) ${dados[i].from}: ${dados[i].text}</div>`
 
         }
         mensagens.scrollIntoView(false)
 
     }}
-
+//enviar mensagem
     function enviarMensagem() {
         let texto = document.querySelector(".mensagem").value
         let mensagem = {
@@ -71,6 +72,10 @@ function mensagens(response) {
         promise.then(function(){
             document.querySelector(".mensagem").value = ''
         });
+        promise.catch(function(){
+            alert("Você ficou offline ")
+            window.location.reload()
+        })
         
     }
 

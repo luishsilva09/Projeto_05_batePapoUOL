@@ -6,8 +6,11 @@
 
 body {
     font-family: 'Roboto';
+    background-color: #E5E5E5;
 }
-
+b{ 
+    font-weight: 700;
+}
 .top {
     background-color: #ffffff;
     width: 100%;
@@ -16,8 +19,8 @@ body {
     top: 0;
     left: 0;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 25px 10px 25px 10px;
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,8 +47,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 25px 10px 25px 10px;
     z-index: 1;
    
 
@@ -54,11 +56,12 @@ body {
 .inferior ion-icon {
     height: 26px;
     width: 26px;
+    cursor: pointer;
 }
 
 input {
     border: none;
-    height: 50px;
+    height: 100%;
     width: 85%;
     font-size:18px;
     font-weight: 400;
@@ -67,6 +70,7 @@ input:placeholder-shown{
     font-style:italic;
 }
 .container{
+    
     font-family: 'Roboto';
     font-size: 14px;
     margin-top: 84px;
@@ -80,10 +84,11 @@ input:placeholder-shown{
 .status{
     background-color: #DCDCDC;
     height: 40px;
+    width: 100%;
     border-radius: 2px;
-    display: flex;
-    align-items: center;
     margin-bottom: 5px;
+
+    padding: 10px;
 }
 .reservadas{
     background-color: #FFDEDE;
@@ -95,9 +100,9 @@ input:placeholder-shown{
 }
 .todos{
     background-color: #ffffff;
-    height: 40px;
+    height: auto;
     border-radius: 2px;
-    display: flex;
-    align-items: center;
     margin-bottom: 5px;
+    padding: 12px 10px 12px 10px;
+    
 }
