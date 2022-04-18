@@ -5,6 +5,7 @@ let nomeUsuario = {}
 function entrarSala() {
 
     let nome = document.querySelector(".nome").value;
+
     nomeUsuario = {
         'name': nome
     };
@@ -88,23 +89,45 @@ function mensagens(response) {
 //enviar mensagem
 function enviarMensagem() {
     let texto = document.querySelector(".mensagem").value;
-    let mensagem = {
-        'from': nomeUsuario.name,
-        'to': "Todos",
-        'text': texto,
-        'type': "message"
+    if(texto !== ""){
+        let mensagem = {
+            'from': nomeUsuario.name,
+            'to': "Todos",
+            'text': texto,
+            'type': "message"
+        };
+        console.log(mensagem);
+        const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', mensagem);
+        promise.then(function () {
+            document.querySelector(".mensagem").value = ''
+        });
+        promise.catch(function () {
+            alert("Você ficou offline ");
+            window.location.reload();
+        });
     };
-    console.log(mensagem);
-    const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', mensagem);
-    promise.then(function () {
-        document.querySelector(".mensagem").value = ''
-    });
-    promise.catch(function () {
-        alert("Você ficou offline ");
-        window.location.reload();
-    })
+    
 
-}
+};
+function participantes() {
+    document.querySelector(".lateral").classList.remove("esconde");
+    setInterval(atualizaLista, 10000);
+    atualizaLista();
+};
+function retornaMensagem() {
+    document.querySelector(".lateral").classList.add("esconde");
+};
+function atualizaLista(){
+    const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants')
+    promise.then(function (response) {
+        document.querySelector(".listaParticipantes").innerHTML = '<div class="participante"><ion-icon name="people" ></ion-icon>Todos</div>';
+        let dadosNome = response.data;
+        for (let i = 0; i < dadosNome.length; i++) {
+            document.querySelector(".listaParticipantes").innerHTML +=
+                `<div class="participante"><ion-icon name="person-circle"></ion-icon>${dadosNome[i].name}</div>`
+        };
+    });
+};
 // fazer enviar mensagem com enter
 const inputEle = document.querySelector(".mensagem");
 inputEle.addEventListener('keyup', function (e) {
@@ -114,7 +137,7 @@ inputEle.addEventListener('keyup', function (e) {
     }
 });
 //entrar apertando enter
-document.querySelector(".nome").value ='';
+document.querySelector(".nome").value = '';
 let inputNome = document.querySelector(".nome");
 inputNome.addEventListener('keyup', function (e) {
     let key = e.keyCode;
